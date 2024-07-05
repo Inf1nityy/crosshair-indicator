@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "crosshair-indicator",
+  "version": "${version}",
+  "name": "CrosshairIndicator",
+  "description": "",
+  "authors": [
+    "NotInfinityy"
+  ],
+  "contact": {
+    "repo": "https://github.com/Inf1nityy/attackindicatorfix"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/crosshairindicator/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.infinityy.crosshairindicator.CrosshairIndicator"
+    ]
+  },
+  "mixins": [
+    "CrosshairIndicator.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
