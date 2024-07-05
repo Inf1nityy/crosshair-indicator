@@ -5,6 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
@@ -23,7 +24,7 @@ public class InGameHudMixin {
     @Unique int textureHeight = 9;
 
     @Inject(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V", ordinal = 0))
-    private void drawCrosshair(DrawContext context, float tickDelta, CallbackInfo ci) {
+    private void drawCrosshair(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
         if (this.client.targetedEntity instanceof PlayerEntity) {
             context.drawTexture(this.textureLocation, (context.getScaledWindowWidth() - 9) / 2, (context.getScaledWindowHeight() - 9) / 2, 0, 0, this.textureWidth, this.textureHeight);
         }
